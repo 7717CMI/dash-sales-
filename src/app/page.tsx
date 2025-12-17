@@ -102,16 +102,16 @@ const StatCard = ({
 
 export default function Dashboard() {
   return (
-    <main className="min-h-screen bg-gray-900 py-8 px-4 md:px-8">
+    <main className="min-h-screen bg-slate-50 py-8 px-4 md:px-8">
       {/* Header Section */}
       <div className="max-w-7xl mx-auto mb-12">
         <div className="flex items-center gap-3 mb-2">
           <TrendingUp className="w-8 h-8 text-blue-500" />
-          <h1 className="text-4xl md:text-5xl font-bold text-white">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
             Sales Projection for Rituva
           </h1>
         </div>
-        <p className="text-gray-400 text-lg">2026 Annual Projections</p>
+        <p className="text-gray-600 text-lg">2026 Annual Projections</p>
       </div>
 
       {/* Summary Stats */}
@@ -266,9 +266,9 @@ export default function Dashboard() {
       </div>
 
       {/* Footer */}
-      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-gray-700">
-        <p className="text-gray-500 text-center text-sm">
-          Sales Projection Dashboard • © 2025 Rituva • All data is projected
+      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-gray-300">
+        <p className="text-gray-600 text-center text-sm">
+          Sales Projection Dashboard • © 2026 Rituva • All data is projected
         </p>
       </div>
     </main>
