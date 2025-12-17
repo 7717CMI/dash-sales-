@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gray-900 text-gray-900;
+}
+
+.chart-card {
+  @apply bg-white rounded-lg shadow-lg p-6 h-full;
+}
+
+.stat-card {
+  @apply bg-gradient-to-br rounded-lg shadow-md p-6 text-white;
+}
+
+.stat-card.blue {
+  @apply from-blue-500 to-blue-600;
+}
+
+.stat-card.green {
+  @apply from-emerald-500 to-emerald-600;
+}
+
+.stat-card.purple {
+  @apply from-purple-500 to-purple-600;
+}
+
+.stat-label {
+  @apply text-sm font-medium opacity-90 mb-2;
+}
+
+.stat-value {
+  @apply text-3xl font-bold;
+}
+
+.chart-title {
+  @apply text-lg font-semibold text-gray-800 mb-6;
+}
+
+/* Tooltip styling */
+.recharts-tooltip {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 12px !important;
+}
+
+.recharts-tooltip-label {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.recharts-tooltip-item {
+  color: #fff !important;
+}
+

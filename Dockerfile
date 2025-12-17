@@ -1,0 +1,24 @@
+# Dockerfile for production deployment
+FROM node:18-alpine AS dependencies
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+
+FROM node:18-alpine AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+FROM node:18-alpine
+WORKDIR /app
+ENV NODE_ENV=production
+COPY --from=dependencies /app/node_modules ./node_modules
+COPY --from=build /app/.next ./.next
+COPY --from=build /app/package*.json ./
+COPY --from=build /app/public ./public
+
+EXPOSE 3000
+CMD ["npm", "start"]
+
