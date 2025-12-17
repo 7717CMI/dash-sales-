@@ -17,7 +17,7 @@ import {
 
 // Data with three scenarios: Pessimistic, Likely, Optimistic (2026)
 const data = [
-  { month: "Jan", advertisingSpend: 0, roasLikely: 2.0, reasPessimistic: 1.4, roasOptimistic: 2.8, revenueLikely: 2, revenuePessimistic: 1, revenueOptimistic: 3 },
+  { month: "Jan", advertisingSpend: 0, roasLikely: 0, reasPessimistic: 0, roasOptimistic: 0, revenueLikely: 2, revenuePessimistic: 1, revenueOptimistic: 3 },
   { month: "Feb", advertisingSpend: 5, roasLikely: 2.2, reasPessimistic: 1.6, roasOptimistic: 3.0, revenueLikely: 9.5, revenuePessimistic: 6, revenueOptimistic: 13 },
   { month: "Mar", advertisingSpend: 5, roasLikely: 2.3, reasPessimistic: 1.7, roasOptimistic: 3.1, revenueLikely: 12, revenuePessimistic: 7, revenueOptimistic: 16 },
   { month: "Apr", advertisingSpend: 5, roasLikely: 2.4, reasPessimistic: 1.8, roasOptimistic: 3.2, revenueLikely: 14.5, revenuePessimistic: 8, revenueOptimistic: 20 },
