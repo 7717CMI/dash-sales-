@@ -3,8 +3,6 @@
 import React from "react";
 import { TrendingUp } from "lucide-react";
 import {
-  BarChart,
-  Bar,
   LineChart,
   Line,
   AreaChart,
@@ -116,11 +114,11 @@ export default function Dashboard() {
       {/* Charts Grid */}
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 gap-8">
-          {/* Chart 1: Advertising Spend */}
+          {/* Chart 1: Advertising Spend - Line Chart */}
           <div className="chart-card">
             <h2 className="chart-title">Monthly Advertising Spend</h2>
             <ResponsiveContainer width="100%" height={300}>
-              <BarChart
+              <LineChart
                 data={data}
                 margin={{ top: 20, right: 30, left: 0, bottom: 5 }}
               >
@@ -128,13 +126,16 @@ export default function Dashboard() {
                 <XAxis dataKey="month" stroke="#6b7280" />
                 <YAxis stroke="#6b7280" label={{ value: "Spend (₹ Lakhs)", angle: -90, position: "insideLeft" }} />
                 <Tooltip content={<CustomTooltip />} />
-                <Bar
+                <Line
+                  type="monotone"
                   dataKey="advertisingSpend"
-                  fill="#3b82f6"
-                  radius={[8, 8, 0, 0]}
+                  stroke="#3b82f6"
+                  strokeWidth={3}
+                  dot={{ fill: "#3b82f6", r: 5 }}
+                  activeDot={{ r: 7 }}
                   name="Ad Spend (₹ Lakhs)"
                 />
-              </BarChart>
+              </LineChart>
             </ResponsiveContainer>
           </div>
 
