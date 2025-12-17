@@ -214,7 +214,7 @@ export default function Dashboard() {
           </div>
 
           {/* Chart 3: Revenue with Three Scenarios */}
-          <div className="chart-card">
+          <div className="chart-card bg-white">
             <h2 className="chart-title">Monthly Revenue</h2>
             <ResponsiveContainer width="100%" height={300}>
               <AreaChart
@@ -231,8 +231,8 @@ export default function Dashboard() {
                   type="monotone"
                   dataKey="revenuePessimistic"
                   fill="#fecaca"
-                  stroke="#ef4444"
-                  strokeWidth={2}
+                  stroke="#dc2626"
+                  strokeWidth={3}
                   name="Revenue - Pessimistic"
                   isAnimationActive={true}
                   opacity={0.6}
@@ -242,8 +242,8 @@ export default function Dashboard() {
                   type="monotone"
                   dataKey="revenueLikely"
                   fill="#a855f7"
-                  stroke="#a855f7"
-                  strokeWidth={2}
+                  stroke="#7c3aed"
+                  strokeWidth={3}
                   name="Revenue - Likely"
                   isAnimationActive={true}
                   opacity={0.7}
@@ -253,8 +253,8 @@ export default function Dashboard() {
                   type="monotone"
                   dataKey="revenueOptimistic"
                   fill="#93c5fd"
-                  stroke="#3b82f6"
-                  strokeWidth={2}
+                  stroke="#2563eb"
+                  strokeWidth={3}
                   name="Revenue - Optimistic"
                   isAnimationActive={true}
                   opacity={0.6}
