@@ -15,20 +15,20 @@ import {
   Legend,
 } from "recharts";
 
-// Data with three scenarios: Pessimistic, Likely, Optimistic
+// Data with three scenarios: Pessimistic, Likely, Optimistic (2026)
 const data = [
-  { month: "Jan", advertisingSpend: 0, roasLikely: 0, reasPessimistic: 0, roasOptimistic: 0, revenueLikely: 2, revenuePessimistic: 1, revenueOptimistic: 3 },
-  { month: "Feb", advertisingSpend: 5, roasLikely: 1.5, reasPessimistic: 1.0, roasOptimistic: 2.0, revenueLikely: 9.5, revenuePessimistic: 6, revenueOptimistic: 13 },
-  { month: "Mar", advertisingSpend: 5, roasLikely: 2.0, reasPessimistic: 1.3, roasOptimistic: 2.8, revenueLikely: 12, revenuePessimistic: 7, revenueOptimistic: 16 },
-  { month: "Apr", advertisingSpend: 5, roasLikely: 2.5, reasPessimistic: 1.5, roasOptimistic: 3.5, revenueLikely: 14.5, revenuePessimistic: 8, revenueOptimistic: 20 },
-  { month: "May", advertisingSpend: 10, roasLikely: 2.8, reasPessimistic: 1.8, roasOptimistic: 3.8, revenueLikely: 30, revenuePessimistic: 18, revenueOptimistic: 42 },
-  { month: "Jun", advertisingSpend: 10, roasLikely: 3.2, reasPessimistic: 2.0, roasOptimistic: 4.2, revenueLikely: 34, revenuePessimistic: 20, revenueOptimistic: 48 },
-  { month: "Jul", advertisingSpend: 10, roasLikely: 3.5, reasPessimistic: 2.2, roasOptimistic: 4.5, revenueLikely: 37, revenuePessimistic: 22, revenueOptimistic: 52 },
-  { month: "Aug", advertisingSpend: 15, roasLikely: 3.8, reasPessimistic: 2.5, roasOptimistic: 4.8, revenueLikely: 59, revenuePessimistic: 38, revenueOptimistic: 80 },
-  { month: "Sep", advertisingSpend: 15, roasLikely: 4.0, reasPessimistic: 2.8, roasOptimistic: 5.0, revenueLikely: 62, revenuePessimistic: 42, revenueOptimistic: 82 },
-  { month: "Oct", advertisingSpend: 15, roasLikely: 4.2, reasPessimistic: 3.0, roasOptimistic: 5.2, revenueLikely: 65, revenuePessimistic: 45, revenueOptimistic: 85 },
-  { month: "Nov", advertisingSpend: 20, roasLikely: 4.5, reasPessimistic: 3.2, roasOptimistic: 5.5, revenueLikely: 92, revenuePessimistic: 65, revenueOptimistic: 120 },
-  { month: "Dec", advertisingSpend: 20, roasLikely: 5.0, reasPessimistic: 3.5, roasOptimistic: 6.0, revenueLikely: 102, revenuePessimistic: 75, revenueOptimistic: 135 },
+  { month: "Jan", advertisingSpend: 0, roasLikely: 2.0, reasPessimistic: 1.4, roasOptimistic: 2.8, revenueLikely: 2, revenuePessimistic: 1, revenueOptimistic: 3 },
+  { month: "Feb", advertisingSpend: 5, roasLikely: 2.2, reasPessimistic: 1.6, roasOptimistic: 3.0, revenueLikely: 9.5, revenuePessimistic: 6, revenueOptimistic: 13 },
+  { month: "Mar", advertisingSpend: 5, roasLikely: 2.3, reasPessimistic: 1.7, roasOptimistic: 3.1, revenueLikely: 12, revenuePessimistic: 7, revenueOptimistic: 16 },
+  { month: "Apr", advertisingSpend: 5, roasLikely: 2.4, reasPessimistic: 1.8, roasOptimistic: 3.2, revenueLikely: 14.5, revenuePessimistic: 8, revenueOptimistic: 20 },
+  { month: "May", advertisingSpend: 10, roasLikely: 2.5, reasPessimistic: 1.9, roasOptimistic: 3.3, revenueLikely: 30, revenuePessimistic: 18, revenueOptimistic: 42 },
+  { month: "Jun", advertisingSpend: 10, roasLikely: 2.6, reasPessimistic: 2.0, roasOptimistic: 3.4, revenueLikely: 34, revenuePessimistic: 20, revenueOptimistic: 48 },
+  { month: "Jul", advertisingSpend: 10, roasLikely: 2.7, reasPessimistic: 2.0, roasOptimistic: 3.5, revenueLikely: 37, revenuePessimistic: 22, revenueOptimistic: 52 },
+  { month: "Aug", advertisingSpend: 15, roasLikely: 2.8, reasPessimistic: 2.1, roasOptimistic: 3.6, revenueLikely: 59, revenuePessimistic: 38, revenueOptimistic: 80 },
+  { month: "Sep", advertisingSpend: 15, roasLikely: 2.8, reasPessimistic: 2.1, roasOptimistic: 3.6, revenueLikely: 62, revenuePessimistic: 42, revenueOptimistic: 82 },
+  { month: "Oct", advertisingSpend: 15, roasLikely: 2.7, reasPessimistic: 2.0, roasOptimistic: 3.4, revenueLikely: 65, revenuePessimistic: 45, revenueOptimistic: 85 },
+  { month: "Nov", advertisingSpend: 20, roasLikely: 2.5, reasPessimistic: 1.8, roasOptimistic: 3.2, revenueLikely: 92, revenuePessimistic: 65, revenueOptimistic: 120 },
+  { month: "Dec", advertisingSpend: 20, roasLikely: 2.5, reasPessimistic: 1.8, roasOptimistic: 3.2, revenueLikely: 102, revenuePessimistic: 75, revenueOptimistic: 135 },
 ];
 
 // Calculate totals for Likely scenario
@@ -86,7 +86,7 @@ export default function Dashboard() {
             Sales Projection for Rituva
           </h1>
         </div>
-        <p className="text-gray-400 text-lg">2025 Annual Projections</p>
+        <p className="text-gray-400 text-lg">2026 Annual Projections</p>
       </div>
 
       {/* Summary Stats */}
