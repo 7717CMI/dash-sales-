@@ -43,12 +43,36 @@ const CustomTooltip = ({ active, payload, label }: any) => {
     return (
       <div className="bg-gray-800 text-white p-3 rounded-lg shadow-lg border border-gray-700">
         <p className="font-semibold text-sm">{label}</p>
-        {payload.map((entry: any, index: number) => (
-          <p key={index} style={{ color: entry.color }} className="text-sm">
-            {entry.name}: {entry.value.toFixed(1)}
-            {entry.name.includes("Spend") || entry.name.includes("Revenue") ? " ₹" : "x"}
-          </p>
-        ))}
+        {payload.map((entry: any, index: number) => {
+          let formattedValue = entry.value.toFixed(1);
+          let suffix = "";
+          
+          // Check dataKey to determine the type
+          const dataKey = entry.dataKey || "";
+          const name = entry.name || "";
+          
+          if (dataKey.includes("revenue") || name.includes("Revenue")) {
+            suffix = " ₹L"; // Revenue in Lakhs
+          } else if (dataKey.includes("advertisingSpend") || name.includes("Spend") || name.includes("Ad Spend")) {
+            suffix = " ₹L"; // Ad Spend in Lakhs
+          } else if (dataKey.includes("roas") || name.includes("ROAS")) {
+            suffix = "x"; // ROAS multiplier
+          } else {
+            // Default: check by value range (heuristic)
+            // Revenue values are typically > 3, ROAS values are typically < 4
+            if (entry.value > 4) {
+              suffix = " ₹L"; // Likely revenue
+            } else {
+              suffix = "x"; // Likely ROAS
+            }
+          }
+          
+          return (
+            <p key={index} style={{ color: entry.color }} className="text-sm">
+              {entry.name}: {formattedValue}{suffix}
+            </p>
+          );
+        })}
       </div>
     );
   }
@@ -209,7 +233,7 @@ export default function Dashboard() {
                   fill="#fecaca"
                   stroke="#ef4444"
                   strokeWidth={2}
-                  name="Pessimistic"
+                  name="Revenue - Pessimistic"
                   isAnimationActive={true}
                   opacity={0.6}
                 />
@@ -220,7 +244,7 @@ export default function Dashboard() {
                   fill="#a855f7"
                   stroke="#a855f7"
                   strokeWidth={2}
-                  name="Likely"
+                  name="Revenue - Likely"
                   isAnimationActive={true}
                   opacity={0.7}
                 />
@@ -231,7 +255,7 @@ export default function Dashboard() {
                   fill="#93c5fd"
                   stroke="#3b82f6"
                   strokeWidth={2}
-                  name="Optimistic"
+                  name="Revenue - Optimistic"
                   isAnimationActive={true}
                   opacity={0.6}
                 />
