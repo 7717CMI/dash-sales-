@@ -19,23 +19,20 @@ import {
 // Revenue = Advertising Spend × ROAS (in Lakhs)
 const data = [
   { month: "Jan", advertisingSpend: 0, roasLikely: 0, reasPessimistic: 0, roasOptimistic: 0, revenueLikely: 0, revenuePessimistic: 0, revenueOptimistic: 0 },
-  { month: "Feb", advertisingSpend: 5, roasLikely: 1.2, reasPessimistic: 1.0, roasOptimistic: 1.8, revenueLikely: 6, revenuePessimistic: 5, revenueOptimistic: 9 },
-  { month: "Mar", advertisingSpend: 5, roasLikely: 1.3, reasPessimistic: 1.1, roasOptimistic: 2.0, revenueLikely: 6.5, revenuePessimistic: 5.5, revenueOptimistic: 10 },
-  { month: "Apr", advertisingSpend: 5, roasLikely: 1.4, reasPessimistic: 1.2, roasOptimistic: 2.2, revenueLikely: 7, revenuePessimistic: 6, revenueOptimistic: 11 },
-  { month: "May", advertisingSpend: 10, roasLikely: 1.5, reasPessimistic: 1.3, roasOptimistic: 2.4, revenueLikely: 15, revenuePessimistic: 13, revenueOptimistic: 24 },
-  { month: "Jun", advertisingSpend: 10, roasLikely: 1.6, reasPessimistic: 1.4, roasOptimistic: 2.6, revenueLikely: 16, revenuePessimistic: 14, revenueOptimistic: 26 },
-  { month: "Jul", advertisingSpend: 10, roasLikely: 1.7, reasPessimistic: 1.5, roasOptimistic: 2.8, revenueLikely: 17, revenuePessimistic: 15, revenueOptimistic: 28 },
-  { month: "Aug", advertisingSpend: 15, roasLikely: 1.9, reasPessimistic: 1.6, roasOptimistic: 3.0, revenueLikely: 28.5, revenuePessimistic: 24, revenueOptimistic: 45 },
-  { month: "Sep", advertisingSpend: 15, roasLikely: 2.0, reasPessimistic: 1.7, roasOptimistic: 3.2, revenueLikely: 30, revenuePessimistic: 25.5, revenueOptimistic: 48 },
-  { month: "Oct", advertisingSpend: 15, roasLikely: 2.2, reasPessimistic: 1.8, roasOptimistic: 3.4, revenueLikely: 33, revenuePessimistic: 27, revenueOptimistic: 51 },
-  { month: "Nov", advertisingSpend: 20, roasLikely: 2.4, reasPessimistic: 1.85, roasOptimistic: 3.6, revenueLikely: 48, revenuePessimistic: 37, revenueOptimistic: 72 },
-  { month: "Dec", advertisingSpend: 20, roasLikely: 2.6, reasPessimistic: 1.9, roasOptimistic: 3.8, revenueLikely: 52, revenuePessimistic: 38, revenueOptimistic: 76 },
+  { month: "Feb", advertisingSpend: 5, roasLikely: 1.6, reasPessimistic: 1.2, roasOptimistic: 1.9, revenueLikely: 8, revenuePessimistic: 6, revenueOptimistic: 9.5 },
+  { month: "Mar", advertisingSpend: 5, roasLikely: 1.75, reasPessimistic: 1.3, roasOptimistic: 2.15, revenueLikely: 8.75, revenuePessimistic: 6.5, revenueOptimistic: 10.75 },
+  { month: "Apr", advertisingSpend: 5, roasLikely: 1.9, reasPessimistic: 1.4, roasOptimistic: 2.4, revenueLikely: 9.5, revenuePessimistic: 7, revenueOptimistic: 12 },
+  { month: "May", advertisingSpend: 10, roasLikely: 2.05, reasPessimistic: 1.5, roasOptimistic: 2.65, revenueLikely: 20.5, revenuePessimistic: 15, revenueOptimistic: 26.5 },
+  { month: "Jun", advertisingSpend: 10, roasLikely: 2.2, reasPessimistic: 1.6, roasOptimistic: 2.9, revenueLikely: 22, revenuePessimistic: 16, revenueOptimistic: 29 },
+  { month: "Jul", advertisingSpend: 10, roasLikely: 2.35, reasPessimistic: 1.7, roasOptimistic: 3.15, revenueLikely: 23.5, revenuePessimistic: 17, revenueOptimistic: 31.5 },
+  { month: "Aug", advertisingSpend: 15, roasLikely: 2.5, reasPessimistic: 1.8, roasOptimistic: 3.4, revenueLikely: 37.5, revenuePessimistic: 27, revenueOptimistic: 51 },
+  { month: "Sep", advertisingSpend: 15, roasLikely: 2.65, reasPessimistic: 1.9, roasOptimistic: 3.65, revenueLikely: 39.75, revenuePessimistic: 28.5, revenueOptimistic: 54.75 },
+  { month: "Oct", advertisingSpend: 15, roasLikely: 2.8, reasPessimistic: 2.0, roasOptimistic: 3.9, revenueLikely: 42, revenuePessimistic: 30, revenueOptimistic: 58.5 },
+  { month: "Nov", advertisingSpend: 20, roasLikely: 3.0, reasPessimistic: 2.2, roasOptimistic: 4.2, revenueLikely: 60, revenuePessimistic: 44, revenueOptimistic: 84 },
+  { month: "Dec", advertisingSpend: 20, roasLikely: 3.2, reasPessimistic: 2.4, roasOptimistic: 4.8, revenueLikely: 64, revenuePessimistic: 48, revenueOptimistic: 96 },
 ];
 
-// Calculate totals for Likely scenario
-const totalAdSpend = data.reduce((acc, item) => acc + item.advertisingSpend, 0);
-const averageROAS = (data.reduce((acc, item) => acc + item.roasLikely, 0) / data.length).toFixed(2);
-const totalRevenue = data.reduce((acc, item) => acc + item.revenueLikely, 0);
+// Revenue calculated as: Advertising Spend × ROAS (in Lakhs)
 
 // Custom tooltip component
 const CustomTooltip = ({ active, payload, label }: any) => {
@@ -79,27 +76,6 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   return null;
 };
 
-// Stat Card Component
-const StatCard = ({
-  title,
-  value,
-  icon: Icon,
-  gradient,
-}: {
-  title: string;
-  value: string;
-  icon: React.ComponentType<any>;
-  gradient: string;
-}) => (
-  <div className={`stat-card ${gradient} flex items-start justify-between`}>
-    <div className="flex-1">
-      <p className="stat-label">{title}</p>
-      <p className="stat-value">{value}</p>
-    </div>
-    <Icon className="w-8 h-8 opacity-80" />
-  </div>
-);
-
 export default function Dashboard() {
   return (
     <main className="min-h-screen bg-slate-50 py-8 px-4 md:px-8">
@@ -112,28 +88,6 @@ export default function Dashboard() {
           </h1>
         </div>
         <p className="text-gray-600 text-lg">2026 Annual Projections</p>
-      </div>
-
-      {/* Summary Stats */}
-      <div className="max-w-7xl mx-auto mb-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <StatCard
-          title="Total Ad Spend"
-          value={`₹${totalAdSpend} L`}
-          icon={TrendingUp}
-          gradient="blue"
-        />
-        <StatCard
-          title="Average ROAS"
-          value={`${averageROAS}x`}
-          icon={TrendingUp}
-          gradient="green"
-        />
-        <StatCard
-          title="Total Revenue"
-          value={`₹${totalRevenue} L`}
-          icon={TrendingUp}
-          gradient="purple"
-        />
       </div>
 
       {/* Charts Grid */}
